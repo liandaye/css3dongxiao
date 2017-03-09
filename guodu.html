@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<div class="box">
+    <div class="son"></div>
+</div>
+<ul>
+    <li><a href="">导航</a></li>
+    <li><a href="">导航</a></li>
+    <li><a href="">导航</a></li>
+    <li><a href="">导航</a></li>
+    <li><a href="">导航</a></li>
+</ul>
+<div class="ccc"></div>
+</body>
+</html>
+<style>
+    .ccc{
+        width: 200px;
+        height: 200px;
+        background: red;
+        animation: wid 1s linear 1s 5 alternate;
+        /*animation-play-state: paused;*/
+        animation-fill-mode: both;
+    }
+    .ccc:hover{
+        animation-play-state: running;
+    }
+    @keyframes wid {
+        0%{
+            margin-left: 100px;
+        }
+        to{
+            margin-left: 600px;
+        }
+    }
+    ul,li,a{
+        margin: 0;
+    padding: 0;
+    list-style: none;
+    }
+    ul{
+        width: 1000px;
+        height:50px;
+        border:1px solid red;
+        margin: 20px auto;
+
+    }
+    li{
+
+        width: 20%;
+        height: 100%;
+        background: orange;
+        border:1px solid #ccc;
+
+        transform: skewX(30deg);
+        float: left;
+        box-sizing: border-box;
+        transition: transform .5s;
+        text-align: center;
+    }
+
+    li a{
+        font-size: 14px;
+        line-height:50px;
+    }
+    li:hover{
+        transform: skewX(0deg);
+
+    }
+    .box{
+        width: 500px;
+        height: 500px;
+        border: 1px solid red;
+        position: absolute;
+        left:50%;
+        top:50%;
+        transform: translate(-50%,-50%);
+        perspective: 800px;
+    }
+    .son{
+        width: 250px;
+        height: 250px;
+        background: yellow;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%) scale(0.5);
+        transition: all ease 1s;
+    }
+    .box:hover .son{
+        transform-origin:center;
+        transform: translate3d(-50%,0px,0px) scale(2) rotate3d(1,1,1,180deg);
+    }
+</style>

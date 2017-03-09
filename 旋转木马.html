@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>旋转木马</title>
+</head>
+<body>
+    <div class="out">
+        <ul class="box">
+            <li><img style="background:url(img/1.jpg) no-repeat center center/cover" alt=""></li>
+            <li><img style="background:url(img/2.jpg) no-repeat center center/cover" alt=""></li>
+            <li><img style="background:url(img/3.jpg) no-repeat center center/cover" alt=""></li>
+            <li><img style="background:url(img/4.jpg) no-repeat center center/cover" alt=""></li>
+            <li><img style="background:url(img/5.jpg) no-repeat center center/cover" alt=""></li>
+            <li><img style="background:url(img/6.jpg) no-repeat center center/cover" alt=""></li>
+        </ul>
+    </div>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .out{
+            width: 600px;
+            height:500px;
+            margin: 100px auto 0;
+            border: 1px solid darkred;
+            perspective: 1200px;
+        }
+        .box{
+            width: 400px;
+            height: 260px;
+            margin: 120px 100px;
+            border: 1px solid orangered;
+            position: relative;
+            transform-style: preserve-3d;
+        }
+        .box li{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+        .box li img{
+            width:400px;
+            height: 260px;
+        }
+    </style>
+
+    <script>
+        var box=document.getElementsByClassName('box')[0]
+        var lis=box.getElementsByTagName('li')
+        var width=lis[0].offsetWidth
+        var ang=360/lis.length
+        var r=width/2/Math.tan(ang/2*Math.PI/180)
+//        alert(r)
+        for(var i=0;i<lis.length;i++){
+            lis[i].style.transform="rotateY("+i*ang+"deg) translateZ("+r+"px)"
+        }
+        var  g=0;
+        box.style.transition="all .5s"
+        setInterval(function(aa){
+            aa=aa||"r"
+            if(aa=="r"){
+                g-=ang
+            }
+            if(aa=="1"){
+                g+=ang
+            }
+            box.style.transform="rotateY("+g+"deg)"
+        },2000)
+
+    </script>
+</body>
+</html>

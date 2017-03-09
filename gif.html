@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>gif</title>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>
+<style>
+    .box{
+        width: calc(999px/13);
+        height: 258px;
+        /*border: 1px solid red;*/
+        background: url("img/222.jpg")  no-repeat center center;
+        animation: move 2s steps(13) infinite,moves 30s linear infinite;
+        box-shadow: #cccccc;
+        /*animation-fill-mode: both;*/
+    }
+    @keyframes move {
+        from{
+            background-position: 0 0;
+        }
+        to{
+            background-position: -999px 0;
+        }
+    }
+    @keyframes moves {
+        0%{
+           margin-left:1000px;
+        }
+        100%{
+            margin-left: 100px;
+        }
+    }
+
+</style>
